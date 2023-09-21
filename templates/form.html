@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome, {{ username }}!</h1>
+    <form method="POST" action="/process_form">
+        <label for="work">Work you did this week:</label>
+        <textarea id="work" name="work" required></textarea><br><br>
+        <label for="project">Portfolio:</label>
+        <select id="project" name="project" required>
+            <option value="Agilisys">Agilisys</option>
+            <option value="Accelerate People">Accelerate People</option>
+            <option value="Avado">Avado</option>
+            <option value="Baby Zone">Baby Zone</option>
+            <option value="BCI Capital">BCI Capital</option>
+            <option value="BC Lead Generation">BC Lead Generation</option>
+            <option value="BC UK">BC UK</option>
+            <option value="Bright Owl">Bright Owl</option>
+            <option value="Coraaj">Coraaj</option>
+            <option value="Delfy">Delfy</option>
+            <option value="English Score">English Score</option>
+            <option value="Fospha">Fospha</option>
+            <option value="Generative AI">Generative AI</option>
+            <option value="Growth Mindset">Growth Mindset</option>
+            <option value="Heme Health">Heme Health</option>
+            <option value="Hive Learning">Hive Learning</option>
+            <option value="Instrumental">Instrumental</option>
+            <option value="IntentPro">IntentPro</option>
+            <option value="Internal Projects">Internal Projects</option>
+            <option value="Koodoo">Koodoo</option>
+            <option value="Kloo">Kloo</option>
+            <option value="Oakbrook Finance">Oakbrook Finance</option>
+            <option value="Red Team">Red Team</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Researcher">Researcher</option>
+            <option value="Salary Finance">Salary Finance</option>
+            <option value="Scoresy">Scoresy</option>
+        </select><br><br>
+        <label for="username">Sub Project:</label>
+        <input type="text" id="sub_project" name="sub_project" required><br><br>
+        <label for="services">Service:</label>
+        <select id="services" name="services" required>
+            <option value="DSaaS">DSaaS</option>
+            <option value="Product">Product</option>
+            <option value="MarTech">MarTech</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

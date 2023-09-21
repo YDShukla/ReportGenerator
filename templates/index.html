@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Update Form</title>
+</head>
+<body>
+    <h1>Work Update Form</h1>
+    <form method="POST">
+        <label for="portfolio">Portfolio:</label>
+        <select id="portfolio" name="portfolio">
+            <option value="Agilisys">Agilisys</option>
+            <option value="Accelerate People">Accelerate People</option>
+            <!-- Add more options here -->
+        </select><br>
+
+        <label for="sub_project">Sub Project:</label>
+        <input type="text" id="sub_project" name="sub_project"><br>
+
+        <label for="service">Service:</label>
+        <select id="service" name="service">
+            <option value="MarTech">MarTech</option>
+            <option value="DSaaS">DSaaS</option>
+            <!-- Add more options here -->
+        </select><br>
+
+        <label for="work_update">What work did you do this week? (Input):</label><br>
+        <textarea id="work_update" name="work_update" rows="4" cols="50"></textarea><br>
+
+        <label for="edited_output">Edit the output if needed:</label><br>
+        <textarea id="edited_output" name="edited_output" rows="4" cols="50"></textarea><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
