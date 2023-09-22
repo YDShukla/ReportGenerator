@@ -6,7 +6,7 @@ body, h1, h2, p, form, label, input, a {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('flowers.avif'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-image: url('Media.jpeg'); /* Replace 'your-background-image.jpg' with the actual image file path */
     background-size: cover;
     text-align: center;
     color: rgb(220, 1, 1); /* Text color */
