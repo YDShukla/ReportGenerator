@@ -12,11 +12,19 @@ import dotenv
 
 import re
 
- 
+import pandas as pd
+
+import numpy as np
+
+import json
+
+import psycopg2
+
+from psycopg2.extras import execute_values
 
 dotenv.load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
 
 app.secret_key = "your_secret_key"  # Replace with your own secret key
 
@@ -28,7 +36,33 @@ users = {'user1': 'password1' , 'user2':'password2'}
 
 api_key = os.getenv("OPEN_AI_API")
 
+#pgvector
+
+db_params = {
+
+    'host': 'localhost',     # Change to your PostgreSQL host
+
+    'port': '5432',          # Change to your PostgreSQL port
+
+    'database': 'postgres',      # Change to your database name
+
+    'user': 'postgres',        # Change to your PostgreSQL username
+
+    'password': os.getenv("DB_PASS") # Change to your PostgreSQL password
+
+}
+
+conn = psycopg2.connect(
+
  
+
+    **db_params
+
+ 
+
+)
+
+cursor = conn.cursor()
 
 # Initialize the OpenAI API client
 
@@ -343,6 +377,10 @@ def update_submission():
 
     write_submission_to_excel(session['username'], input_data, output_data, business_update , portfolio , service)
 
+    cursor.execute("INSERT INTO weeklyreport (USERNAME,INPUT_,OUTPUT_,BUSINESS_UPDATE,SERVICE ,PORTFOLIO) VALUES (%s,%s, %s,%s,%s,%s)", (session['username'],input_data,output_data,business_update ,service, portfolio))
+
+    conn.commit()
+
     session.pop('username', None)
 
     session.pop('submission', None)
@@ -352,7 +390,6 @@ def update_submission():
     return redirect(url_for('login'))
 
  
-
 if __name__ == '__main__':
 
     app.run(debug=False , host='0.0.0.0')
