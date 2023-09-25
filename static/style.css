@@ -6,14 +6,24 @@ body, h1, h2, p, form, label, input, a {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('Media.jpeg'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-image: url(''); /* Replace 'your-background-image.jpg' with the actual image file path */
     background-size: cover;
     text-align: center;
-    color: rgb(220, 1, 1); /* Text color */
+    color: #282828; /* Almost Black text color */
+}
+
+/* Add styles for the top-left image */
+.top-left-image {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    z-index: 1; /* Ensures the image is above other content */
 }
 
 h1 {
-    background-color: rgb(220, 1, 1); /* Red background color */
+    background-color: #d61010; /* Red background color */
     color: white;
     padding: 20px;
     margin-bottom: 20px;
@@ -22,8 +32,8 @@ h1 {
 form {
     background-color: white;
     padding: 70px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2); /* Added blur glow */
     display: inline-block;
     text-align: left;
     margin: 20px;
@@ -36,6 +46,7 @@ label {
     display: block;
     margin-bottom: 5px;
     margin-top: 10px;
+    font-size: 20px;
 }
 
 textarea#input,
@@ -45,6 +56,7 @@ textarea#bu {
     height: 100px;
     background-color: white; /* White background color for text areas */
     color: #333; /* Text color for text areas */
+    font-size: 18px;
 }
 
 input[type="text"],
@@ -61,7 +73,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    background-color: rgb(220, 0, 0); /* Red background color */
+    background-color: #FF0000; /* Red background color */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -71,21 +83,21 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: darkred; /* Darker red on hover */
+    background-color: #8b0000; /* Darker red on hover */
 }
 
 p {
-    font-size: 18px;
+    font-size: 25px;
     line-height: 1.4;
-    color: rgb(220, 0, 0); /* Text color */
+    color: #282828; /* Almost Black text color */
 }
 
 a {
     text-decoration: none;
-    color: rgb(220, 0, 0); /* Red link color */
+    color: #FF0000; /* Red link color */
     display: block;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 a:hover {
