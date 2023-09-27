@@ -6,7 +6,7 @@ body, h1, h2, p, form, label, input, a {
 
 body {
     font-family: Arial, sans-serif;
-    background-image: url('/bcmain.png'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-image: url('/static/bcmain.png'); /* Replace 'your-background-image.jpg' with the actual image file path */
     background-size: cover;
     text-align: center;
     color: #282828; /* Almost Black text color */
