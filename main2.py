@@ -38,31 +38,31 @@ api_key = os.getenv("OPEN_AI_API")
 
 #pgvector
 
-db_params = {
+# db_params = {
 
-    'host': 'localhost',     # Change to your PostgreSQL host
+#     'host': 'localhost',     # Change to your PostgreSQL host
 
-    'port': '5432',          # Change to your PostgreSQL port
+#     'port': '5432',          # Change to your PostgreSQL port
 
-    'database': 'postgres',      # Change to your database name
+#     'database': 'postgres',      # Change to your database name
 
-    'user': 'postgres',        # Change to your PostgreSQL username
+#     'user': 'postgres',        # Change to your PostgreSQL username
 
-    'password': os.getenv("DB_PASS") # Change to your PostgreSQL password
+#     'password': os.getenv("DB_PASS") # Change to your PostgreSQL password
 
-}
+# }
 
-conn = psycopg2.connect(
-
- 
-
-    **db_params
+# conn = psycopg2.connect(
 
  
 
-)
+#     **db_params
 
-cursor = conn.cursor()
+ 
+
+# )
+
+# cursor = conn.cursor()
 
 # Initialize the OpenAI API client
 
@@ -375,15 +375,15 @@ def update_submission():
 
 # Write the submission to the Excel file
 
-    write_submission_to_excel(session['username'], input_data, output_data, business_update , portfolio , service)
+    # write_submission_to_excel(session['username'], input_data, output_data, business_update , portfolio , service)
 
-    cursor.execute("INSERT INTO weeklyreport (USERNAME,INPUT_,OUTPUT_,BUSINESS_UPDATE,SERVICE ,PORTFOLIO) VALUES (%s,%s, %s,%s,%s,%s)", (session['username'],input_data,output_data,business_update ,service, portfolio))
+    # cursor.execute("INSERT INTO weeklyreport (USERNAME,INPUT_,OUTPUT_,BUSINESS_UPDATE,SERVICE ,PORTFOLIO) VALUES (%s,%s, %s,%s,%s,%s)", (session['username'],input_data,output_data,business_update ,service, portfolio))
 
-    conn.commit()
+    # conn.commit()
 
-    session.pop('username', None)
+    # session.pop('username', None)
 
-    session.pop('submission', None)
+    # session.pop('submission', None)
 
  
 
