@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Details</title>
+    <link rel="stylesheet" href="static/updated_portfolio_details.css">
+</head>
+<body>
+    <h1></h1>
+    <textarea rows="10" cols="50" id="portfolio-textarea" >{{ portfolio_details }}</textarea>
+    <br>
+    <form action="/download_portfolio_docx" method="POST" >
+        <button type="submit"  id='docx_button' class="btn btn-primary">Download Portfolio Details (DOCX)</button>
+    </form>
+</body>
+</html>
