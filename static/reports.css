@@ -1,0 +1,150 @@
+/* Reset some default styles */
+body, h1, h2, p, form, label, input, a {
+    margin: 0;
+    padding: 0;
+}
+.cont {
+    margin-top: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 140px;
+    margin-right: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Position the top-left image */
+.top-left-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 65px;
+    height: 65px;
+    z-index: 1;
+}
+
+body {
+    background-image: url('plain.png');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.input-group {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.date-input-group {
+    display:inline-flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 20px; /* Add spacing between the date input and other elements */
+}
+
+.date-input-group label {
+    
+    text-align: right; /* Right-align the labels */
+    margin-right: 20px; /* Add spacing between the label and input */
+    margin-left: 40px;
+}
+
+.date-input-group input[type="date"] {
+    flex: 1; /* Allow the input fields to expand and fill available space */
+    width: 100%; /* Set width to auto to fill available space */
+    
+    margin-right: 40px;
+    
+    
+}
+
+
+h1 {
+    background-color: #b71010;
+    color: #fff;
+    padding: 20px;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    width: 1200px;
+    max-height: 680px;
+    margin: 0 auto;
+    
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    height: 100%;
+}
+
+.btn-group {
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #b71010;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #e00707;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+a {
+    text-decoration: none;
+    color: #b71010;
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 900px) {
+    form {
+        margin: 10px;
+    }
+}
