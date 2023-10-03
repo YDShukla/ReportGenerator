@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome, {{ username }}!</h1>
-    <form method="POST" action="/process_form" id="report">
+    <h1></h1>
+    <form method="POST" action="/process_form" id="report" name="report">
         <label for="work">Work you did this week:</label>
         <textarea id="work" name="work" required></textarea><br><br>
         <label for="project">Portfolio:</label>
@@ -40,19 +40,25 @@
         </select><br><br>
         <label for="username">Sub Project:</label>
         <input type="text" id="sub_project" name="sub_project" required><br><br>
-        <label for="services">Service:</label>
-        <select id="services" name="services" required>
-            <option value="DSaaS">DSaaS</option>
-            <option value="Product">Product</option>
-            <option value="MarTech">MarTech</option>
-        </select><br><br>
+        <div class="input-group">
+          <label for="service">Service:</label>
+          <select id="service" name="services" required>
+              <option value="DSaaS">DSaaS</option>
+              <option value="Product">Product</option>
+              <option value="MarTech">MarTech</option>
+          </select>
+      </div>
+      
+      <div class="input-group">
+          <label for="progress">Progress:</label>
+          <select id="progress" name="progress" required>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+          </select>
+      </div>
+        <br><br>      
         <label for="team">Team Members:</label>
         <textarea id="team" name="team" ></textarea><br><br>
-        <label for="progress">Progress:</label>
-        <select id="progress" name="progress" required>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select><br><br>
          <!-- Date selection input added here -->
          <label for="date">Select a Date:</label>
          <input type="date" id="selected_date" name="selected_date" required><br><br>
