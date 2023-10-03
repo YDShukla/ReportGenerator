@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    <link rel="stylesheet" href="static/table.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Data Table</h2>
+        <div class="table-container">
+            {{ table_html | safe }}
+            
+            <!-- Add a button for downloading Excel -->
+            <form action="/download_xlsx" method="GET">
+                <button type="submit"  id='excl_button' class="btn btn-primary">Download Excel</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
