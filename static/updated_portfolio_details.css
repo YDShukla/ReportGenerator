@@ -1,0 +1,74 @@
+/* styles.css */
+body, h1, p, form, label, textarea, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('bcmain.png');
+    background-size: cover;
+    text-align: center;
+    color: #282828;
+}
+
+h1 {
+    background-color: #8b0000;
+    color: white;
+    height: 25px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-align: left;
+    margin: 20px;
+    margin: 0 auto;
+    max-width: 300px; /* Adjust the maximum width as needed */
+
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+textarea#portfolio-textarea {
+    width: 100%; /* Full width */
+    height: 500px; /* Adjust the height as needed */
+    background-color: white;
+    color: #333;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-color: #b71010;
+    margin-bottom: 15px;
+}
+
+button#docx_button {
+    background-color: #b71010;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button#docx_button:hover {
+    background-color: #8b0000;
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        margin: 10px;
+    }
+}
