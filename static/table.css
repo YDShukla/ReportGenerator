@@ -1,0 +1,85 @@
+/* Custom CSS for the Data Table */
+
+/* Add some spacing and style to the container */
+.container {
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.table-container {
+    max-height: 650px; 
+    max-width: 1200px;/* Adjust the max height as needed */
+    overflow: auto;
+    margin-left: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    
+}
+/* Style the heading */
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style table header */
+thead {
+    background-color: #FF0000;
+    color: #fff;
+}
+
+/* Style table header cells */
+th {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style table body */
+tbody {
+    background-color: #ffffff;
+}
+
+/* Style table rows */
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style table cells */
+td {
+    padding: 10px;
+}
+
+/* Style alternating rows */
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+/* Hover effect on table rows */
+tr:hover {
+    background-color: #d0d0d0;
+}
+#excl_button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #05680f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    margin-top: 10px;
+}
+#excl_button:hover {
+    background-color: #0e9a27;
+}
