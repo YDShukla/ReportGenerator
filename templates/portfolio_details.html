@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <title>Portfolio Details</title>
+    <link rel="stylesheet" href="static/portfolio_details.css">
+
 </head>
 <body>
     <h1></h1>
-    <div class="container" id="login" name="login">
-        <form method="POST" action="/login" id="login" name="login">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
+    <form method="POST" action="/updated_portfolio_details">
+        <textarea rows="10" cols="50" name="portfolio-textarea">{{ portfolio_details }}</textarea>
+        <br>
+        <button type="submit">Update Portfolio Details</button>
+    </form>
 </body>
 </html>
