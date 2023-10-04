@@ -418,6 +418,8 @@ def update_submission():
 
     session.pop('submission', None)
 
+ 
+
     alert_message = "Your Response has been saved successfully"
 
  
@@ -443,8 +445,6 @@ def update_submission():
  
 
     ''', message=alert_message)
-
-    return redirect(url_for('login'))
 
  
 
@@ -506,45 +506,43 @@ def portfolio_details():
 
  
 
-    for num in range(0, len(df)):
+    list1 = []
 
-        if num == 0:
+    for name in df["portfolio"]:
 
-            portfolio_details = portfolio_details + "\n" + f"""
+        if name in list1:
 
-            {df.iloc[num]['portfolio']}
-
- 
-
-            {df.iloc[num]['input_']}
-
-            - {df.iloc[num]['output_']}
-
-        """
-
-        elif (num > 0 and df.iloc[num - 1]['portfolio'] != df.iloc[num]['portfolio']):
-
-            portfolio_details = portfolio_details + "\n" + f"""
-
-            {df.iloc[num]['portfolio']}
-
- 
-
-            {df.iloc[num]['input_']}
-
-            - {df.iloc[num]['output_']}
-
-        """
+            continue
 
         else:
 
-            portfolio_details = portfolio_details + "\n" + f"""
+            list1.append(name)
 
-            {df.iloc[num]['input_']}
+ 
 
-            - {df.iloc[num]['output_']}
+ 
 
-        """
+    finalstr = ""
+
+    for x in list1:
+
+        finalstr = finalstr + "\n" + x + "\n"
+
+        for index, row in df.iterrows():
+
+            if x == row["portfolio"]:
+
+                finalstr += f"""
+
+        {row['input_']}
+
+        - {row['output_']}
+
+    """
+
+ 
+
+    portfolio_details = finalstr + "\n"
 
  
 
@@ -763,6 +761,7 @@ def download_pdf():
         mimetype='application/pdf'
 
     )
+
     
 # Run the Flask app if this file is executed directly
 if __name__ == '__main__':
