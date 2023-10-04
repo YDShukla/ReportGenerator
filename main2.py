@@ -418,7 +418,31 @@ def update_submission():
 
     session.pop('submission', None)
 
+    alert_message = "Your Response has been saved successfully"
+
  
+
+    return render_template_string('''
+
+ 
+
+        <script>
+
+ 
+
+            alert("{{ message }}");
+
+ 
+
+            window.location.href = "/"; // Redirect back to the previous page
+
+ 
+
+        </script>
+
+ 
+
+    ''', message=alert_message)
 
     return redirect(url_for('login'))
 
