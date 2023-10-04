@@ -37,8 +37,8 @@ db_config = {
 }
 
 # Connect to the PostgreSQL database
-conn = psycopg2.connect(**db_config)
-cursor = conn.cursor()
+# conn = psycopg2.connect(**db_config)
+# cursor = conn.cursor()
 
 # Initialize the OpenAI API client
 openai.api_key = os.getenv('OPEN_AI_API')
