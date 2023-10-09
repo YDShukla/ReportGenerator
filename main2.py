@@ -27,7 +27,7 @@ app.secret_key = "your_secret_key"  # Replace with your own secret key
 
 # Simulated user data (replace with a real authentication system)
 users = {'user1': 'password1', 'user2': 'password2'}
-admin_user = {'AD': 'BC'}
+admin_user = {'AD': 'BC' , 'harshada':'123', 'rohit':'123' , 'karan': '123' , 'aayushi': '123'}
 
 # SQLAlchemy setup
 Base = declarative_base()
