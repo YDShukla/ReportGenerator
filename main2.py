@@ -41,13 +41,16 @@ class WeekReport(Base):
     id = Column(Integer, primary_key=True)
     date_column = Column(DateTime)
     username = Column(String(255))
-    input_ = Column(Text)
-    output_ = Column(Text)
+    user_input = Column(Text)
+    user_output= Column(Text)
     business_update = Column(Text)
     service = Column(String(255))
     portfolio = Column(String(255))
     teammates = Column(String(255))
     progress = Column(String(255))
+    ai_input = Column(Text)
+    ai_output = Column(Text)
+
 
 # Create the database tables
 Base.metadata.create_all(engine)
@@ -87,7 +90,8 @@ def authenticate():
 @app.route('/process_form', methods=['POST'])
 def process_form():
     # Extract form data (input fields from your HTML form)
-    input_data = request.form['work']
+    input_data = request.form['input1']
+    user_output_data = request.form['output1']
     portfolio = request.form['project']
     service = request.form['services']
     selected_date = request.form['selected_date']
@@ -101,6 +105,7 @@ def process_form():
             'content': """
             You are a professional business report generator. Your task is to create a detailed business report in the following format, which includes sections for input, output, and a business update. Maintain a high level of professionalism in the language and presentation of the report.
 
+            weekly work done by user is : {input_data}
             Please adhere to the specific format provided below:
 
             INPUT:
@@ -115,7 +120,7 @@ def process_form():
         },
         {
             'role': 'user',
-            'content': f"{input_data}"
+            'content': f"input from user {input_data} and output from user {user_output_data} improve it in a business representable way "
         }
     ]
 
@@ -135,6 +140,8 @@ def process_form():
     session['selected_date'] = selected_date
     session['progress'] = progress
     session['team'] = team
+    session['user_input'] = input_data
+    session['user_output'] = user_output_data
 
     return redirect(url_for('submission_output_editable'))
 
@@ -156,10 +163,19 @@ def submission_output_editable():
     input_section = input_match.group(1).strip() if input_match else ""
     output_section = output_match.group(1).strip() if output_match else ""
     business_update_section = business_update_match.group(1).strip() if business_update_match else ""
+    gpt_rep = session.get('submission', '')
+    portfolio = session.get('portfolio', '')
+    service = session.get('service', '')
+    user_input  = session.get('user_input', '')
+    user_output = session.get('user_output', '')
+    date = session.get('selected_date', '')
+    progress = session.get('progress', '')
+    team = session.get('team', '')
+
 
     return render_template('submission_output_editable.html', submission=session.get('submission', ''),
                            username=session.get('username', ''), input=input_section, output=output_section,
-                           business_update=business_update_section)
+                           business_update=business_update_section , gpt_rep = gpt_rep ,team = team ,progress=progress,date=date, portfolio=portfolio, service=service , user_input=user_input , user_output=user_output)
 
 # Define a route for updating the submission
 @app.route('/update_submission', methods=['POST'])
@@ -192,13 +208,15 @@ def update_submission():
     new_report = WeekReport(
         date_column=date_column,  # Convert date to datetime
         username=session['username'],
-        input_=input_data,
-        output_=output_data,
+        user_input= session.get('user_input', ''),
+        user_output=session.get('user_output', ''),
         business_update=business_update,
         service=service,
         portfolio=portfolio,
         teammates=session['team'],
-        progress=session['progress']
+        progress=session['progress'],
+        ai_input = input_data,
+        ai_output = output_data,
     )
 
     # Add the new report to the database
@@ -253,7 +271,7 @@ def portfolio_details():
     portfolio_details = ""
 
     list1 = [] 
-    for name in df["portfolio"]:
+    for name in df["PORTFOLIO"]:
         if name in list1:
             continue
         else:
@@ -262,12 +280,11 @@ def portfolio_details():
 
     finalstr = ""
     for x in list1:
-        finalstr = finalstr +"\n"+ x +"\n"
+        finalstr = finalstr +"\n"+ x
         for index, row in df.iterrows():
-            if x == row["portfolio"]:
+            if x == row["PORTFOLIO"]:
                 finalstr += f"""
-        {row['input_']}
-        - {row['output_']}
+        {row['AI_INPUT']} - {row['AI_OUTPUT']}
     """
 
     portfolio_details = finalstr
@@ -281,13 +298,58 @@ def update_portfolio_details():
 
     return render_template_string(render_template('updated_portfolio_details.html', portfolio_details=portfolio_details))
 
-@app.route('/download_portfolio_docx', methods=['POST'])
+
+
+
+
+
+
+
+
+@app.route('/download_portfolio_docx', methods=['POST','GET'])
 def download_portfolio_docx():
     portfolio_details = session.get('portfolio-textarea', '')
+    fromdate = session.get('todate', '')
+    todate = session.get('fromdate', '')
+    service = session.get('service', '')
+    portfolio =  session.get('portfolio', '')
 
     doc = Document()
-    doc.add_heading('Portfolio Details', level=0)
+    doc.add_heading('Report', level=0)
     doc.add_paragraph(portfolio_details)
+
+    query = ''
+    df = ''
+
+    if portfolio == 'all':
+        query = f"SELECT * FROM weekreport WHERE DATE_COLUMN BETWEEN '{fromdate}' AND '{todate}' AND SERVICE LIKE '{service}'"
+        df = pd.read_sql(query, db_session.bind)
+    else:
+        query = f"SELECT * FROM weekreport WHERE DATE_COLUMN BETWEEN '{fromdate}' AND '{todate}' AND PORTFOLIO LIKE '{portfolio}' AND SERVICE LIKE '{service}'"
+        df = pd.read_sql(query, db_session.bind)
+
+    print(portfolio)
+    print(df)
+    list1 = [] 
+    for name in df["PORTFOLIO"]:
+        if name in list1:
+            continue
+        else:
+            list1.append(name)
+
+
+    finalstr = ""
+    for x in list1:
+        finalstr = finalstr +"\n""\n""\n"+ x + "\n"
+        doc.add_heading(x, level=3)
+        for index, row in df.iterrows():
+            if x == row["PORTFOLIO"]:
+                detail = f"""
+        {row['AI_INPUT']} - {row['AI_OUTPUT']}
+    """
+                
+
+
 
     temp_docx_file = io.BytesIO()
     doc.save(temp_docx_file)
@@ -299,6 +361,18 @@ def download_portfolio_docx():
         download_name='portfolio_details.docx',
         mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     )
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/report')
 def report():
@@ -316,11 +390,12 @@ def index():
     session['portfolio'] = portfolio
     service = request.form['services']
     session['service'] = service
+    
+    if portfolio == None:
+        query = "SELECT * FROM weekreport"
+        df = pd.read_sql(query, db_session.bind)
 
-    query = ''
-    df = ''
-
-    if portfolio == 'all':
+    elif portfolio == 'all':
         query = f"SELECT * FROM weekreport WHERE DATE_COLUMN BETWEEN '{fromdate}' AND '{todate}' AND SERVICE LIKE '{service}'"
         df = pd.read_sql(query, db_session.bind)
     else:
@@ -329,7 +404,9 @@ def index():
 
     table_html = df.to_html(classes='table table-bordered table-striped', index=False)
 
-    return render_template('report.html', table_html=table_html)
+
+
+    return render_template('report.html' , table_html=table_html)
 
 @app.route('/download_xlsx', methods=['GET', 'POST'])
 def download_xlsx():
@@ -380,7 +457,7 @@ def download_pdf():
         download_name='report.pdf',
         mimetype='application/pdf'
     )
-  
+
 # Run the Flask app if this file is executed directly
 if __name__ == '__main__':
-    app.run(debug=False , host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0')
