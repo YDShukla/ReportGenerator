@@ -8,14 +8,28 @@
     <form method="POST" action="/update_submission">
         <label>Your Submission:</label>
         <br><br>
-        <label>Input</label>
-        <textarea name="input" id="input" contenteditable="true">{{ input }}</textarea><br><br>
+        <label>Service</label>
+        <output id="service" name="service" readonly> {{ service }}</output><br><br>
+        <label>Portfolio</label>
+        <output id="portfolio" name="portfolio" readonly> {{ portfolio }}</output><br><br>
+        <label>Status</label>
+        <output id="progress" name="progress" readonly> {{ progress }}</output><br><br>
+        <label>Team Member</label>
+        <output id="team" name="team" readonly> {{ team }}</output><br><br>
+        <label>Your Input</label>
+        <output id="user_input" name="user_input" readonly> {{ user_input }}</output><br><br>
+        <label>Your Output</label>
+        <output id="user_output" name="user_output" readonly> {{ user_output }}</output><br><br>
+        <label>Date of Submission</label>
+        <output id="date" name="date" readonly> {{ date }}</output><br><br>
+        <label>AI Input</label>
+        <textarea name="input" id="input" contenteditable="true">{{ input }}</textarea>
         <br><br>
-        <label>Output</label>
-        <textarea name="output" id="output" contenteditable="true">{{ output }}</textarea><br><br>
+        <label>AI Output</label>
+        <textarea name="output" id="output" contenteditable="true">{{ output }}</textarea>
         <br><br>
         <label>Business Update</label>
-        <textarea name="bu" id="bu" contenteditable="true">{{ business_update }}</textarea><br><br>
+        <textarea name="bu" id="bu" contenteditable="true">{{ business_update }}</textarea>
         <input type="submit" value="Update Submission">
     </form>
     <a href="/">Back to Home</a>

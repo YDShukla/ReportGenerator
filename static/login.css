@@ -1,17 +1,19 @@
 body, h1, h2, p, form, label, input, a {
 
     margin: 0;
-
     padding: 0;
 
 }
-
+h1 {
+    text-align: left;
+    margin-bottom: 300px;
+}
  
 
 body {
 
     font-family: Arial, sans-serif;
-    background-image: url('bcmain.png'); /* Replace 'your-background-image.jpg' with the actual image file path */
+    background-image: url('bcmain2.png'); /* Replace 'your-background-image.jpg' with the actual image file path */
     background-size: cover;
     text-align: center;
     color: #282828; /* Almost Black text color */
@@ -24,7 +26,7 @@ body {
     right: 200px; /* Adjust this value to control the distance from the right edge */
     transform: translateY(-50%);
     background-color: #f4f4f4; /* Set a background color for the form */
-    padding: 20px; /* Add padding to the form */
+    padding: 0px; /* Add padding to the form */
     border-radius: 5px; /* Add rounded corners to the form */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow to the form */
 }

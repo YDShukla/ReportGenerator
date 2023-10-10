@@ -1,773 +1,402 @@
-body, h1, h2, p, form, label, input, a {
-
- 
+body, h1,h2, p, form, label, input, a {
 
     margin: 0;
-
     padding: 0;
-
- 
 
 }
 
- 
-
- 
-
- 
 
 body {
 
- 
-
     font-family: Arial, sans-serif;
-
     background-image: url('plain.png'); /* Replace 'your-background-image.jpg' with the actual image file path */
-
     background-size: cover;
-
     text-align: center;
-
     color: #282828; /* Almost Black text color */
 
- 
-
 }
-
- 
 
 .container {
-
     position: absolute;
-
     top: 50%;
-
     right: 200px; /* Adjust this value to control the distance from the right edge */
-
     transform: translateY(-50%);
-
     background-color: #f4f4f4; /* Set a background color for the form */
-
     padding: 20px; /* Add padding to the form */
-
     border-radius: 5px; /* Add rounded corners to the form */
-
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow to the form */
-
 }
-
- 
-
  
 
 /* Add styles for the top-left image */
 
- 
-
 .top-left-image {
-
- 
 
     position: absolute;
 
- 
-
     top: 10px; /* Adjust the top position as needed */
-
- 
 
     left: 10px; /* Adjust the left position as needed */
 
- 
-
     width: 50px; /* Adjust the width as needed */
-
- 
 
     height: 50px; /* Adjust the height as needed */
 
- 
-
     z-index: 1; /* Ensures the image is above other content */
 
- 
-
 }
-
- 
-
- 
 
  
 
 h1 {
 
- 
-
     background-color: #d61010; /* Red background color */
-
- 
 
     color: white;
 
- 
-
     padding: 20px;
 
- 
-
     height: 25px;
-
     margin-bottom: 20px;
-
- 
 
 }
 
- 
 
- 
-
- 
 
 form {
 
- 
-
     background-color: white;
-
- 
 
     padding: 70px;
 
- 
-
     border-radius: 10px;
-
- 
 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2); /* Added blur glow */
 
- 
-
     display: inline-block;
 
- 
-
     text-align: left;
-
- 
 
     margin: 20px;
 
- 
-
     max-width: 400px;
 
- 
-
-    max-height: 1000px;
-
- 
+    max-height: 1200px;
 
     margin: 0 auto;
 
- 
-
 }
 
- 
-
- 
 
 form#login {
-
     background-color: white;
-
- 
 
     padding: 70px;
 
- 
-
     border-radius: 10px;
-
- 
 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2); /* Added blur glow */
 
- 
-
     display: inline-block;
 
- 
-
     text-align: left;
-
- 
 
     margin-left: 200px;
 
- 
-
     max-width: 300px;
 
- 
-
     margin: 0 auto;
-
 }
-
- 
 
 form#report {
 
- 
-
     background-color: white;
-
- 
 
     padding: 70px;
 
- 
-
     border-radius: 10px;
-
- 
 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 20px rgba(0, 0, 0, 0.2); /* Added blur glow */
 
- 
-
     display: inline-block;
-
- 
 
     text-align: left;
 
- 
-
     margin: 20px;
 
- 
-
     max-width: 400px;
-
-    max-height: 600px;
-
- 
+    max-height: 900px;
 
     margin: 0 auto;
 
- 
+}
+select#project{
+    width: 310px;
+    height: 35px;
+    font-size: 16px;
+    border-color: #333;
+}
+
+
+label {
+
+    font-weight: bold;
+    display: block;
+
+    margin-bottom: 5px;
+
+    margin-top: 10px;
+
+    font-size: 20px;
 
 }
 
-select#project{
+input#sub_project {
+
+    width: 290px;
+
+    border-color: #333;
+
+    background-color: white; /* White background color for text areas */
+
+    color: #333; /* Text color for text areas */
+
+    font-size: 16px;
+}
+
+textarea#input1 {
 
     width: 310px;
 
     height: 35px;
 
-    font-size: 16px;
-
-    border-color: #333;
-
-}
-
- 
-
- 
-
-label {
-
- 
-
-    font-weight: bold;
-
- 
-
-    display: block;
-
- 
-
-    margin-bottom: 5px;
-
- 
-
-    margin-top: 10px;
-
- 
-
-    font-size: 20px;
-
- 
-
-}
-
- 
-
-input#sub_project {
-
- 
-
-    width: 290px;
-
- 
-
-    border-color: #333;
-
- 
-
     background-color: white; /* White background color for text areas */
-
- 
 
     color: #333; /* Text color for text areas */
 
- 
-
     font-size: 16px;
-
-}
-
- 
-
-textarea#work {
-
- 
-
-    width: 310px;
-
- 
-
-    height: 50px;
-
- 
-
-    background-color: white; /* White background color for text areas */
-
- 
-
-    color: #333; /* Text color for text areas */
-
- 
-
-    font-size: 16px;
-
- 
 
     border-radius: 5px;
 
- 
+}
+
+textarea#output1 {
+
+    width: 310px;
+
+    height: 35px;
+
+    background-color: white; /* White background color for text areas */
+
+    color: #333; /* Text color for text areas */
+
+    font-size: 16px;
+
+    border-radius: 5px;
 
 }
 
- 
 
 textarea#team {
 
- 
-
     width: 310px;
-
- 
 
     height: 30px;
 
- 
-
     background-color: white; /* White background color for text areas */
 
- 
-
     color: #333; /* Text color for text areas */
-
- 
 
     font-size: 16px;
 
- 
-
     border-radius: 5px;
-
- 
 
 }
 
- 
 
- 
-
- 
 
 textarea#input,
 
- 
-
 textarea#output,
-
- 
 
 textarea#bu {
 
- 
-
     width: 395px;
-
- 
 
     height: 100px;
 
- 
-
     background-color: white; /* White background color for text areas */
-
- 
 
     color: #333; /* Text color for text areas */
 
- 
-
     font-size: 18px;
 
- 
-
 }
-
- 
-
- 
 
  
 
 input[type="text"],
 
- 
-
 input[type="password"] {
-
- 
 
     width: 100%;
 
- 
-
     padding: 10px;
-
- 
 
     border: 1px solid #ccc;
 
- 
-
     border-radius: 5px;
-
- 
 
     font-size: 16px;
 
- 
-
     margin-bottom: 15px;
-
- 
 
     height: 100%;
 
- 
-
     background-color: white; /* White background color for input fields */
-
- 
 
     color: #333; /* Text color for input fields */
 
- 
-
 }
-
- 
-
- 
 
  
 
 input[type="submit"] {
 
- 
-
     background-color: #FF0000; /* Red background color */
-
- 
 
     color: white;
 
- 
-
     border: none;
-
- 
 
     padding: 10px 20px;
 
- 
-
     cursor: pointer;
-
- 
 
     border-radius: 5px;
 
- 
-
     font-size: 16px;
 
- 
-
 }
-
- 
-
- 
 
  
 
 input[type="submit"]:hover {
 
- 
-
     background-color: #8b0000; /* Darker red on hover */
 
- 
-
 }
-
- 
-
- 
 
  
 
 p {
 
- 
-
     font-size: 25px;
-
- 
 
     line-height: 1.4;
 
- 
-
     color: #282828; /* Almost Black text color */
 
- 
-
 }
-
- 
-
- 
 
  
 
 a {
 
- 
-
     text-decoration: none;
-
- 
 
     color: #FF0000; /* Red link color */
 
- 
-
     display: block;
-
- 
 
     margin-top: 20px;
 
- 
-
     font-size: 25px;
 
- 
-
 }
-
- 
-
- 
 
  
 
 a:hover {
 
- 
-
     text-decoration: underline;
 
- 
-
 }
-
- 
 
 .input-group {
-
     display: inline-block; /* Make the divs appear in a single line */
-
     margin-right: 55px; /* Add spacing between the dropdowns */
-
 }
-
- 
 
 /* Adjust the width of the select elements as needed */
-
 .input-group select {
-
     width: 120px;
-
     height: 30px;
-
     font-size: 16px; /* Adjust the width as per your design */
-
     border-color: #333;
-
 }
 
- 
-
- 
 
 /* Style the label */
-
 label[for="selected_date"] {
-
     font-weight: bold;
-
     display: block;
-
     margin-top: 10px;
-
     font-size: 20px;
-
 }
-
- 
 
 /* Style the date input */
-
 input[type="date"] {
-
     width: 300px; /* Adjust the width as needed */
-
     padding: 10px;
-
     border: 1px solid #ccc;
-
     border-radius: 5px;
-
     font-size: 16px;
-
     background-color: #f4f4f4; /* Light gray background color */
-
     color: #333;
-
     transition: all 0.3s ease-in-out; /* Add a smooth transition effect */
-
 }
-
- 
 
 /* Style the date input on focus */
-
 input[type="date"]:focus {
-
     outline: none; /* Remove the default focus outline */
-
     border-color: #8b0000; /* Change border color on focus */
-
     box-shadow: 0 0 5px rgba(139, 0, 0, 0.5); /* Add a subtle shadow on focus */
-
 }
-
- 
 
 /* Add a subtle animation on hover */
-
 input[type="date"]:hover {
-
     transform: scale(1.02); /* Scale up the input on hover */
-
 }
-
- 
 
 /* Add a pulsating animation */
-
 @keyframes pulse {
-
     0% {
-
         transform: scale(1);
-
     }
-
     50% {
-
         transform: scale(1.05);
-
     }
-
     100% {
-
         transform: scale(1);
-
     }
-
 }
 
- 
-
 /* Apply the pulsating animation on focus
-
 input[type="date"]:focus {
-
     animation: pulse 1s infinite; Apply the pulsating animation */
 
- 
 
- 
 
- 
-
- 
 
 /* Responsive design for smaller screens */
 
- 
-
 @media screen and (max-width: 1200px) {
-
- 
 
     form {
 
- 
-
         margin: 10px;
 
- 
-
     }
-
- 
 
 }
